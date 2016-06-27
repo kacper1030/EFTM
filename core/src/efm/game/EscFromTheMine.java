@@ -3,6 +3,8 @@ package efm.game;
 import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input.Keys;
+import com.badlogic.gdx.audio.Music;
+import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
@@ -14,6 +16,7 @@ public class EscFromTheMine extends ApplicationAdapter {
 	private GameObject objPlayer, obj300x200, obj140x800, obj320x200, obj300x200_1, obj320x200_1;
 	private SpriteBatch sb;
 	public OrthographicCamera cam;
+	private Music music;
 
 	protected static final int HEIGHT = 800;
 	protected static final int WIDTH = 480;
@@ -22,7 +25,10 @@ public class EscFromTheMine extends ApplicationAdapter {
 	public void create() {
 
 		sb = new SpriteBatch();
-
+		music = Gdx.audio.newMusic(Gdx.files.internal("background_music.mp3"));
+		music.setVolume((float) 0.2);
+		music.play();
+		
 		texPlayer = new Texture("playertex.png");
 		tex140x800 = new Texture("140x800.png");
 		tex300x200 = new Texture("300x200.png");
