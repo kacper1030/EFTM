@@ -4,7 +4,6 @@ import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input.Keys;
 import com.badlogic.gdx.audio.Music;
-import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
@@ -26,7 +25,7 @@ public class EscFromTheMine extends ApplicationAdapter {
 
 		sb = new SpriteBatch();
 		music = Gdx.audio.newMusic(Gdx.files.internal("background_music.mp3"));
-		music.setVolume((float) 0.2);
+		music.setVolume((float) 0.0);		//TODO i have to change volume to 0.2 or 0.1
 		music.play();
 		
 		texPlayer = new Texture("playertex.png");
@@ -107,18 +106,22 @@ public class EscFromTheMine extends ApplicationAdapter {
 		if (Gdx.input.isKeyPressed(Keys.A)) {
 			objPlayer.x -= 100 * Gdx.graphics.getDeltaTime();
 			float posX = objPlayer.x;
-			System.out.println("Coorinate X " +posX);
+			System.out.println("Coorinate X " + posX);
 		}
 		if (Gdx.input.isKeyPressed(Keys.D)) {
 			objPlayer.x += 100 * Gdx.graphics.getDeltaTime();
+			float posX_1 = objPlayer.x;
+			System.out.println("Coorinate X " + posX_1);
 		}
 		if (Gdx.input.isKeyPressed(Keys.W)) {
 			objPlayer.y += 100 * Gdx.graphics.getDeltaTime();
 			float posY = objPlayer.y;
-			System.out.println("Coorinate Y " +posY);
+			System.out.println("Coorinate Y " + posY);
 		}
 		if (Gdx.input.isKeyPressed(Keys.S)) {
 			objPlayer.y -= 100 * Gdx.graphics.getDeltaTime();
+			float posY_1 = objPlayer.y;
+			System.out.println("Coorinate Y " + posY_1);
 		}
 
 		// colision
