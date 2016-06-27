@@ -10,8 +10,8 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
 public class EscFromTheMine extends ApplicationAdapter {
 
-	private Texture texPlayer, tex300x200, tex140x800, tex320x200;
-	private GameObject objPlayer, obj300x200, obj140x800, obj320x200;
+	private Texture texPlayer, tex300x200, tex140x800, tex320x200, tex300x200_1, tex320x200_1;
+	private GameObject objPlayer, obj300x200, obj140x800, obj320x200, obj300x200_1, obj320x200_1;
 	private SpriteBatch sb;
 	public OrthographicCamera cam;
 
@@ -27,11 +27,16 @@ public class EscFromTheMine extends ApplicationAdapter {
 		tex140x800 = new Texture("140x800.png");
 		tex300x200 = new Texture("300x200.png");
 		tex320x200 = new Texture("320x200.png");
+		tex320x200_1 = new Texture("320x200.png");
+		tex300x200_1 = new Texture("300x200.png");
+		
 
 		objPlayer = new GameObject(texPlayer);
 		obj300x200 = new GameObject(tex300x200);
 		obj140x800 = new GameObject(tex140x800);
 		obj320x200 = new GameObject(tex320x200);
+		obj300x200_1 = new GameObject(tex300x200);
+		obj320x200_1 = new GameObject(tex320x200);
 
 		/*
 		 * 
@@ -51,14 +56,24 @@ public class EscFromTheMine extends ApplicationAdapter {
 
 		obj300x200.x = 320;
 		obj300x200.y = 0;
-		obj300x200.width = obj140x800.getTexture().getWidth();
-		obj300x200.height = obj140x800.getTexture().getHeight();
+		obj300x200.width = obj300x200.getTexture().getWidth();
+		obj300x200.height = obj300x200.getTexture().getHeight();
 
 		obj320x200.x = 320;
 		obj320x200.y = 480;
 		obj320x200.width = obj320x200.getTexture().getWidth();
 		obj320x200.height = obj320x200.getTexture().getHeight();
+		
+		obj320x200_1.x = 330;
+		obj320x200_1.y = 470;
+		obj320x200_1.width = obj320x200_1.getTexture().getWidth();
+		obj320x200_1.height = obj320x200_1.getTexture().getHeight();
 
+		obj300x200_1.x = 330;
+		obj300x200_1.y = 10;
+		obj300x200_1.width = obj300x200_1.getTexture().getWidth();
+		obj300x200_1.height = obj300x200_1.getTexture().getHeight();
+		
 	}
 
 	@Override
@@ -73,8 +88,10 @@ public class EscFromTheMine extends ApplicationAdapter {
 		sb.draw(objPlayer.getTexture(), objPlayer.x, objPlayer.y);
 		sb.draw(obj140x800.getTexture(), obj140x800.x, obj140x800.y);
 		sb.draw(obj300x200.getTexture(), obj300x200.x, obj300x200.y);
+		sb.draw(obj300x200_1.getTexture(), obj300x200_1.x, obj300x200_1.y);
 		sb.draw(obj320x200.getTexture(), obj320x200.x, obj320x200.y);
-
+		sb.draw(obj320x200_1.getTexture(), obj320x200_1.x, obj320x200_1.y);
+		
 		sb.end();
 
 	}
@@ -84,7 +101,7 @@ public class EscFromTheMine extends ApplicationAdapter {
 		if (Gdx.input.isKeyPressed(Keys.A)) {
 			objPlayer.x -= 100 * Gdx.graphics.getDeltaTime();
 			float posX = objPlayer.x;
-			System.out.println(posX);
+			System.out.println("Coorinate X " +posX);
 		}
 		if (Gdx.input.isKeyPressed(Keys.D)) {
 			objPlayer.x += 100 * Gdx.graphics.getDeltaTime();
@@ -92,27 +109,43 @@ public class EscFromTheMine extends ApplicationAdapter {
 		if (Gdx.input.isKeyPressed(Keys.W)) {
 			objPlayer.y += 100 * Gdx.graphics.getDeltaTime();
 			float posY = objPlayer.y;
-			System.out.println(posY);
+			System.out.println("Coorinate Y " +posY);
 		}
 		if (Gdx.input.isKeyPressed(Keys.S)) {
 			objPlayer.y -= 100 * Gdx.graphics.getDeltaTime();
 		}
 
 		// colision
-		
-		//TODO Trzeba zrobiæ  wszystkie kolizje
 
-		if (objPlayer.overlaps(obj140x800)) {
+		if (objPlayer.overlaps(obj140x800)) { // colision with left texture
 			objPlayer.x = 140;
 		}
-		if (objPlayer.overlaps(obj300x200) && objPlayer.y <= 200) {
+		if (objPlayer.overlaps(obj300x200) ) { // colision with lower text
 			objPlayer.x = 261;
-
 		}
 
-		if (objPlayer.overlaps(obj320x200)) {
+		if (objPlayer.overlaps(obj320x200)) { 	// colision with upper texture
 			objPlayer.x = 261;
-
+		}
+		
+		if (objPlayer.overlaps(obj300x200_1)){
+			objPlayer.y = 209;
+		}
+		
+		if (objPlayer.overlaps(obj320x200_1)){
+			objPlayer.y = 411;
+		}
+		
+		if( objPlayer.x >= 420 ){
+			objPlayer.x = 420;
+		}
+		
+		if( objPlayer.y >= 720){
+			objPlayer.y = 720;
+		}
+		
+		if( objPlayer.y <= 15 ){
+			objPlayer.y = 15;
 		}
 
 	}
