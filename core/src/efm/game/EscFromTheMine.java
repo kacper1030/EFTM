@@ -2,22 +2,25 @@ package efm.game;
 
 import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.graphics.Camera;
 import com.badlogic.gdx.graphics.GL20;
+import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
 public class EscFromTheMine extends ApplicationAdapter {
 	
-	private Texture texPlayer;
-	private GameObject objPlayer;
+	private Texture texPlayer,texLongWall;
+	private GameObject objPlayer, objLongWall;
 	private SpriteBatch sb;
+	public OrthographicCamera cam;
 	
 	@Override
 	public void create () {
 		
 		sb = new SpriteBatch();
 		
-		texPlayer = new Texture("badlogic.jpg");
+		texPlayer = new Texture("playertex.png");
 		
 		objPlayer = new GameObject(texPlayer);
 		
