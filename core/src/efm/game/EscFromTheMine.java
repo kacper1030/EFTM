@@ -83,15 +83,36 @@ public class EscFromTheMine extends ApplicationAdapter {
 
 		if (Gdx.input.isKeyPressed(Keys.A)) {
 			objPlayer.x -= 100 * Gdx.graphics.getDeltaTime();
+			float posX = objPlayer.x;
+			System.out.println(posX);
 		}
 		if (Gdx.input.isKeyPressed(Keys.D)) {
 			objPlayer.x += 100 * Gdx.graphics.getDeltaTime();
 		}
 		if (Gdx.input.isKeyPressed(Keys.W)) {
 			objPlayer.y += 100 * Gdx.graphics.getDeltaTime();
+			float posY = objPlayer.y;
+			System.out.println(posY);
 		}
 		if (Gdx.input.isKeyPressed(Keys.S)) {
 			objPlayer.y -= 100 * Gdx.graphics.getDeltaTime();
+		}
+
+		// colision
+		
+		//TODO Trzeba zrobiæ  wszystkie kolizje
+
+		if (objPlayer.overlaps(obj140x800)) {
+			objPlayer.x = 140;
+		}
+		if (objPlayer.overlaps(obj300x200) && objPlayer.y <= 200) {
+			objPlayer.x = 261;
+
+		}
+
+		if (objPlayer.overlaps(obj320x200)) {
+			objPlayer.x = 261;
+
 		}
 
 	}
