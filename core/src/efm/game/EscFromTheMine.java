@@ -105,22 +105,22 @@ public class EscFromTheMine extends ApplicationAdapter {
 
 		if (Gdx.input.isKeyPressed(Keys.A)) {
 			objPlayer.x -= 100 * Gdx.graphics.getDeltaTime();
-//			float posX = objPlayer.x;
+			float posX = objPlayer.x;
 //			System.out.println("Coorinate X " + posX);
 		}
 		if (Gdx.input.isKeyPressed(Keys.D)) {
 			objPlayer.x += 100 * Gdx.graphics.getDeltaTime();
-//			float posX_1 = objPlayer.x;
+			float posX_1 = objPlayer.x;
 //			System.out.println("Coorinate X " + posX_1);
 		}
 		if (Gdx.input.isKeyPressed(Keys.W)) {
 			objPlayer.y += 100 * Gdx.graphics.getDeltaTime();
-//			float posY = objPlayer.y;
+			float posY = objPlayer.y;
 //			System.out.println("Coorinate Y " + posY);
 		}
 		if (Gdx.input.isKeyPressed(Keys.S)) {
 			objPlayer.y -= 100 * Gdx.graphics.getDeltaTime();
-//			float posY_1 = objPlayer.y;
+			float posY_1 = objPlayer.y;
 //			System.out.println("Coorinate Y " + posY_1);
 		}
 
