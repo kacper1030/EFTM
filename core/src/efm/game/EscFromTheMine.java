@@ -36,12 +36,6 @@ public class EscFromTheMine extends ApplicationAdapter {
 		setupPlayer();
 		setupWalls();
 
-		/*
-		 * 
-		 * 
-		 * Below, they are properties of Game Objects
-		 */
-
 	}
 
 	private void setupWalls() {
